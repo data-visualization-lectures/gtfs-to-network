@@ -25,8 +25,7 @@ body {
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     overflow: hidden;
     position: relative;
 }
@@ -38,56 +37,30 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.8; /* Higher opacity for pastel look */
-    animation: move 20s infinite alternate;
-}
+/* ... blobs ... */
 
-.blob-1 {
-    width: 500px;
-    height: 500px;
-    background: var(--blob-1);
-    top: -150px;
-    left: -150px;
-}
-
-.blob-2 {
-    width: 600px;
-    height: 600px;
-    background: var(--blob-2);
-    bottom: -150px;
-    right: -150px;
-    animation-delay: -5s;
-}
-
-.blob-3 {
-    width: 400px;
-    height: 400px;
-    background: var(--blob-3);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-delay: -10s;
-}
-
-@keyframes move {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 50px) scale(1.1); }
-}
-
-/* Glass Card */
-.container {
+dataviz-header {
     width: 100%;
-    max-width: 500px;
+    z-index: 1000;
+}
+
+/* Glass Card Container */
+.container {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
 }
 
 .glass-card {
+    width: 100%;
+    max-width: 500px;
     background: var(--card-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
