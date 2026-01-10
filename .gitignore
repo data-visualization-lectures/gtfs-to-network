@@ -1,0 +1,8 @@
+# GTFS Data
+*.txt
+
+# Output CSVs
+*.csv
+
+# System files
+.DS_Store

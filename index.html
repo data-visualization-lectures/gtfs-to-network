@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTFS to Network Data Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <div class="glass-card">
+            <header>
+                <h1>GTFS ネットワークデータ変換</h1>
+                <p>GTFSデータをノード・リンクデータ(CSV)に変換します</p>
+            </header>
+
+            <div class="upload-section" id="drop-zone">
+                <div class="icon-container">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h3>GTFSファイルをドラッグ＆ドロップ</h3>
+                <p>またはクリックして全ファイルを選択</p>
+                <input type="file" id="file-input" multiple hidden>
+            </div>
+
+            <div class="options-section">
+                <label class="option-label">出力フォーマット</label>
+                <div class="toggle-container">
+                    <input type="radio" name="format" id="format-2csv" value="2csv" checked>
+                    <label for="format-2csv" class="toggle-btn">
+                        <span class="btn-title">2-CSV 形式</span>
+                        <span class="btn-desc">ノードとリンクを別ファイル化します</span>
+                    </label>
+
+                    <input type="radio" name="format" id="format-1csv" value="1csv">
+                    <label for="format-1csv" class="toggle-btn">
+                        <span class="btn-title">1-CSV 形式</span>
+                        <span class="btn-desc">ノードとリンクを同一ファイル化します</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="convert-btn" class="primary-btn" disabled>
+                    <span class="btn-text">変換開始</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </div>
+
+            <div id="status-area" class="status-area hidden">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="status-text">準備完了</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
